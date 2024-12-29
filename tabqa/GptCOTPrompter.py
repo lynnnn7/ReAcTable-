@@ -203,7 +203,11 @@ Answer the following question based on the data above: "{}". Execute SQL step-by
             self.gpt_error = f'Cannot execute {code_type} {code} on \n{df.to_string()}\nError: {str(e)}'
             # print(str(e))
             if contains_sqlite_functions(code) and 'SQL' in code_type:
-                os.system(f"rm {self.tmp_db_name}")
+                if os.path.exists(self.tmp_db_name):  # 添加这一行
+                    os.system(f"rm {self.tmp_db_name}")
+            # if not os.path.exists(self.tmp_db_name):  # 添加这一行
+            #         open(self.tmp_db_name, 'w').close()  # 创建文件
+            #     os.system(f"rm {self.tmp_db_name}")
             # exit(1)
             return None
     

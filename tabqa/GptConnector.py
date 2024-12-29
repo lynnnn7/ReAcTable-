@@ -83,6 +83,7 @@ def prompt2messages(prompt):
 def is_chat_model(model):
     if model in [
         'gpt-4', 
+        'gpt-4o-mini',
         'gpt-4-0314', 
         'gpt-4-32k', 
         'gpt-4-32k-0314', 
