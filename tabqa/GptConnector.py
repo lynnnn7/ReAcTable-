@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 import openai
-client = OpenAI(api_key=openai.api_key)
+client = OpenAI(api_key=openai.api_key,base_url=openai.base_url)
 import multiprocessing
 import time
 import pprint

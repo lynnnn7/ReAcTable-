@@ -3,8 +3,12 @@ import pandas as pd
 import openai
 from openai import OpenAI
 
-
-client = OpenAI(api_key=openai.api_key)
+import dotenv
+config = dotenv.dotenv_values("../.env")
+openai.api_key = config['OPENAI_API_KEY']
+openai.base_url = config['GPT_BASE_URL']
+# print(openai.api_key, openai.base_url)
+client = OpenAI(api_key=openai.api_key,base_url=openai.base_url)
 
 import os
 import json

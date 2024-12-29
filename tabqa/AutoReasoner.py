@@ -2,7 +2,7 @@ import re
 import pandas as pd
 from openai import OpenAI
 import openai
-client = OpenAI(api_key=openai.api_key)
+client = OpenAI(api_key=openai.api_key,base_url=openai.base_url)
 import os
 import json
 # from gpt3_sandbox.api.gpt import GPT
