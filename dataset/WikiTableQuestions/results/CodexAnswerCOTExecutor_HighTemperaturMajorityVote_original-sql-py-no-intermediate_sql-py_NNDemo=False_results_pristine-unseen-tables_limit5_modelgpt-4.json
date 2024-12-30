@@ -1,0 +1,22 @@
+[
+    {
+        "id": "nu-0",
+        "uncaught_err": "'NoneType' object has no attribute 'choices'"
+    },
+    {
+        "id": "nu-1",
+        "uncaught_err": "'NoneType' object has no attribute 'choices'"
+    },
+    {
+        "id": "nu-2",
+        "uncaught_err": "'NoneType' object has no attribute 'choices'"
+    },
+    {
+        "id": "nu-3",
+        "uncaught_err": "'NoneType' object has no attribute 'choices'"
+    },
+    {
+        "id": "nu-4",
+        "uncaught_err": "'NoneType' object has no attribute 'choices'"
+    }
+]

@@ -132,8 +132,8 @@ cc.en.300.bin
 
 *.pt
 baseline/
-dataset/WikiTableQuestions/results/
-dataset/Table-Fact-Checking/results/
+# dataset/WikiTableQuestions/results/
+# dataset/Table-Fact-Checking/results/
 dataset/Table-Fact-Checking/train.csv
 dataset/FeTaQA/results/
 dataset/Table-Fact-Checking/preprocessed_data_program/
