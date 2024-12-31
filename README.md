@@ -1,6 +1,7 @@
 # ReAcTable
 This is the code repo for VLDB 2024 paper: ***ReAcTable: Enhancing ReAct for Table Question Answering***
-
+!!attention!这不是源代码，是源代码基础上做了一点可运行的改动（针对 openai 调用）
+以及一个需要考虑的问题：numpy和pandas库的版本兼容，目前能运行的环境是numpy=1.21.0 pandas=1.5.3
 # Organization
 - ```dataset/``` contains the example dataset WikiTQ. This dataset is cloned from the [original WikiTQ dataset](https://github.com/ppasupat/WikiTableQuestions).  
 - ```notebooks/``` contains the example usage of this github repo. 
