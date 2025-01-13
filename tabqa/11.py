@@ -9,7 +9,7 @@ dataset = pd.read_csv('../dataset/WikiTableQuestions/data/pristine-unseen-tables
 
 NNDemo = False
 max_demo = 5
-gpt_model = 'gpt-4o-mini'
+gpt_model = 'Qwen/Qwen2.5-7B-Instruct'
 program = 'sql-py'
 template = 'original-sql-py-no-intermediate'
 

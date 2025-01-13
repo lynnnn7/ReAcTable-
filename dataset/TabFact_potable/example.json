@@ -1,0 +1,385 @@
+[
+    {
+        "statement": "the united states of the highest number of medals get 60+ more medals than france", 
+        "label": 1, 
+        "column_selection": "<START> -> select columns named `country`, `total` -> <END>", 
+        "row_selection": "<START> -> <END>",
+        "data_cleaning": "<START> -> <END>",
+        "reasoning": "<START> -> transfer column `total` by extracting the number after ' = ', and then transfer the column into `int` type -> sort the column `total` in descending mode -> check whether the row indexed 0 in column `country` has value 'the united states' -> check the value `total` of `country`='the united states' is 60+ more than the value `total` of `country`='france' -> <END>",
+        "post_processing": "<START> -> print out the bool type variable indicating whether the statement is true or not -> <END>",
+        "caption": "the medal list of top 10 countries on gold medals in olympic game of paris 2024", 
+        "table_text": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "40 + 44 + 42 = 126"], 
+            ["china", "40", "27", "24", "40 + 27 + 24 = 91"], 
+            ["japan", "20", "12", "13", "20 + 12 + 13 = 45"], 
+            ["australia", "18", "19", "16", "18 + 19 + 16 = 53"], 
+            ["france", "16", "26", "22", "16 + 26 + 22 = 64"], 
+            ["netherlands", "15", "7", "12", "15 + 7 + 12 = 34"], 
+            ["great britain", "14", "22", "29", "14 + 22 + 29 = 65"], 
+            ["south korea", "13", "9", "10", "13 + 9 + 10 = 32"], 
+            ["italy", "12", "13", "15", "12 + 13 + 15 = 40"], 
+            ["germany", "12", "13", "8", "12 + 13 + 8 = 33"]
+        ],
+        "table_column_selection": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "40 + 44 + 42 = 126"], 
+            ["china", "40", "27", "24", "40 + 27 + 24 = 91"], 
+            ["japan", "20", "12", "13", "20 + 12 + 13 = 45"], 
+            ["australia", "18", "19", "16", "18 + 19 + 16 = 53"], 
+            ["france", "16", "26", "22", "16 + 26 + 22 = 64"], 
+            ["netherlands", "15", "7", "12", "15 + 7 + 12 = 34"], 
+            ["great britain", "14", "22", "29", "14 + 22 + 29 = 65"], 
+            ["south korea", "13", "9", "10", "13 + 9 + 10 = 32"], 
+            ["italy", "12", "13", "15", "12 + 13 + 15 = 40"], 
+            ["germany", "12", "13", "8", "12 + 13 + 8 = 33"]
+        ],
+        "table_row_selection": [
+            ["country", "total"], 
+            ["the united states", "40 + 44 + 42 = 126"], 
+            ["china", "40 + 27 + 24 = 91"], 
+            ["japan", "20 + 12 + 13 = 45"], 
+            ["australia", "18 + 19 + 16 = 53"], 
+            ["france", "16 + 26 + 22 = 64"], 
+            ["netherlands", "15 + 7 + 12 = 34"], 
+            ["great britain", "14 + 22 + 29 = 65"], 
+            ["south korea", "13 + 9 + 10 = 32"], 
+            ["italy", "12 + 13 + 15 = 40"], 
+            ["germany", "12 + 13 + 8 = 33"]
+        ],
+        "table_data_cleaning": [
+            ["country", "total"], 
+            ["the united states", "40 + 44 + 42 = 126"], 
+            ["china", "40 + 27 + 24 = 91"], 
+            ["japan", "20 + 12 + 13 = 45"], 
+            ["australia", "18 + 19 + 16 = 53"], 
+            ["france", "16 + 26 + 22 = 64"], 
+            ["netherlands", "15 + 7 + 12 = 34"], 
+            ["great britain", "14 + 22 + 29 = 65"], 
+            ["south korea", "13 + 9 + 10 = 32"], 
+            ["italy", "12 + 13 + 15 = 40"], 
+            ["germany", "12 + 13 + 8 = 33"]
+        ],
+        "table_reasoning": [
+            ["country", "total"], 
+            ["the united states", "40 + 44 + 42 = 126"], 
+            ["china", "40 + 27 + 24 = 91"], 
+            ["japan", "20 + 12 + 13 = 45"], 
+            ["australia", "18 + 19 + 16 = 53"], 
+            ["france", "16 + 26 + 22 = 64"], 
+            ["netherlands", "15 + 7 + 12 = 34"], 
+            ["great britain", "14 + 22 + 29 = 65"], 
+            ["south korea", "13 + 9 + 10 = 32"], 
+            ["italy", "12 + 13 + 15 = 40"], 
+            ["germany", "12 + 13 + 8 = 33"]
+        ],
+        "table_post_processing": [
+            ["country", "total"], 
+            ["the united states", 126], 
+            ["china", 91], 
+            ["great britain", 65], 
+            ["france", 64], 
+            ["australia", 53],
+            ["japan", 45], 
+            ["italy", 40], 
+            ["netherlands", 34], 
+            ["germany", 33],
+            ["south korea", 32]  
+        ],
+        "code_base": "import pandas as pd\n\ndf = pd.DataFrame(\n    data=[['the united states', '40', '44', '42', '40 + 44 + 42 = 126'], ['china', '40', '27', '24', '40 + 27 + 24 = 91'], ['japan', '20', '12', '13', '20 + 12 + 13 = 45'], ['australia', '18', '19', '16', '18 + 19 + 16 = 53'], ['france', '16', '26', '22', '16 + 26 + 22 = 64'], ['netherlands', '15', '7', '12', '15 + 7 + 12 = 34'], ['great britain', '14', '22', '29', '14 + 22 + 29 = 65'], ['south korea', '13', '9', '10', '13 + 9 + 10 = 32'], ['italy', '12', '13', '15', '12 + 13 + 15 = 40'], ['germany', '12', '13', '8', '12 + 13 + 8 = 33']],\n    columns=['country', 'gold', 'silver', 'bronze', 'total']    \n)\n",
+        "generated_code": { 
+            "column_selection": [
+                {
+                    "operation": "select columns named `country`, `total`",
+                    "code": "df = df[['country', 'total']]"
+                }
+            ],
+            "row_selection": [],
+            "data_cleaning": [],
+            "reasoning": [
+                {
+                    "operation": "transfer column `total` by extracting the number after ' = ', and then transfer the column into `int` type",
+                    "code": "df['total'] = df['total'].apply(lambda x: x.split(' = ')[-1])\ndf['total'] = df['total'].astype(int)"
+                },
+                {
+                    "operation": "sort the column `total` in descending mode",
+                    "code": "df.sort_values(by=['total'], ascending=False, inplace=True)"
+                },
+                {
+                    "operation": "check whether the row indexed 0 in column `country` has value 'the united states'",
+                    "code": "subfact_1 = df['country'].iloc[0] == 'the united states'"
+                },
+                {
+                    "operation": "check the value `total` of `country`='the united states' is 60+ more than the value `total` of `country`='france'",
+                    "code": "subfact_2 = df['total'][df['country'] == 'the united states'].values[0] - df['total'][df['country'] == 'france'].values[0] >= 60"
+                }
+            ],
+            "post_processing": [
+                {
+                    "operation": "print out the bool type variable indicating whether the statement is true or not",
+                    "code": "print(subfact_1 and subfact_2)"
+                }
+            ]
+        }
+    },
+    {
+        "statement": "the top 3 countries on gold medal numbers won a total of 100 gold medals", 
+        "label": 1, 
+        "column_selection": "<START> -> select columns named `country`, `gold` -> <END>", 
+        "row_selection": "<START> -> remove rows where `country`='total' -> <END>",
+        "data_cleaning": "<START> -> transform column `gold` into `int` type -> <END>",
+        "reasoning": "<START> -> sort the column `gold` in descending mode -> add the values of column `gold` of the first three rows -> check if the added value is equal to 100 -> <END>",
+        "post_processing": "<START> -> print out the bool type variable indicating whether the statement is true or not -> <END>",
+        "caption": "the medal list of top 10 countries on gold medals in olympic game of paris 2024", 
+        "table_text": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "126"], 
+            ["china", "40", "27", "24", "91"], 
+            ["japan", "20", "12", "13", "45"], 
+            ["australia", "18", "19", "16", "53"], 
+            ["france", "16", "26", "22", "64"], 
+            ["netherlands", "15", "7", "12", "34"], 
+            ["great britain", "14", "22", "29", "65"], 
+            ["south korea", "13", "9", "10", "32"], 
+            ["italy", "12", "13", "15", "40"], 
+            ["germany", "12", "13", "8", "33"], 
+            ["total", "200", "192", "191", "583"]
+        ],
+        "table_column_selection": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "126"], 
+            ["china", "40", "27", "24", "91"], 
+            ["japan", "20", "12", "13", "45"], 
+            ["australia", "18", "19", "16", "53"], 
+            ["france", "16", "26", "22", "64"], 
+            ["netherlands", "15", "7", "12", "34"], 
+            ["great britain", "14", "22", "29", "65"], 
+            ["south korea", "13", "9", "10", "32"], 
+            ["italy", "12", "13", "15", "40"], 
+            ["germany", "12", "13", "8", "33"], 
+            ["total", "200", "192", "191", "583"]
+        ],
+        "table_row_selection": [
+            ["country", "gold"], 
+            ["the united states", "40"], 
+            ["china", "40"], 
+            ["japan", "20"], 
+            ["australia", "18"], 
+            ["france", "16"], 
+            ["netherlands", "15"], 
+            ["great britain", "14"], 
+            ["south korea", "13"], 
+            ["italy", "12"], 
+            ["germany", "12"], 
+            ["total", "200"]
+        ],
+        "table_data_cleaning": [
+            ["country", "gold"], 
+            ["the united states", "40"], 
+            ["china", "40"], 
+            ["japan", "20"], 
+            ["australia", "18"], 
+            ["france", "16"], 
+            ["netherlands", "15"], 
+            ["great britain", "14"], 
+            ["south korea", "13"], 
+            ["italy", "12"], 
+            ["germany", "12"]
+        ],
+        "table_reasoning": [
+            ["country", "gold"], 
+            ["the united states", 40], 
+            ["china", 40], 
+            ["japan", 20], 
+            ["australia", 18], 
+            ["france", 16], 
+            ["netherlands", 15], 
+            ["great britain", 14], 
+            ["south korea", 13], 
+            ["italy", 12], 
+            ["germany", 12]
+        ],
+        "table_post_processing": [
+            ["country", "gold"], 
+            ["the united states", 40], 
+            ["china", 40], 
+            ["japan", 20], 
+            ["australia", 18], 
+            ["france", 16], 
+            ["netherlands", 15], 
+            ["great britain", 14], 
+            ["south korea", 13], 
+            ["italy", 12], 
+            ["germany", 12] 
+        ],
+        "code_base": "import pandas as pd\n\ndf = pd.DataFrame(\n    data=[['the united states', '40', '44', '42', '126'], ['china', '40', '27', '24', '91'], ['japan', '20', '12', '13', '45'], ['australia', '18', '19', '16', '53'], ['france', '16', '26', '22', '64'], ['netherlands', '15', '7', '12', '34'], ['great britain', '14', '22', '29', '65'], ['south korea', '13', '9', '10', '32'], ['italy', '12', '13', '15', '40'], ['germany', '12', '13', '8', '33'], ['total', '200', '192', '191', '583']],\n    columns=['country', 'gold', 'silver', 'bronze', 'total']    \n)\n",
+        "generated_code": {
+            "column_selection": [
+                {
+                    "operation": "select columns named `country`, `gold`",
+                    "code": "df = df[['country', 'gold']]"
+                }
+            ],
+            "row_selection": [
+                {
+                    "operation": "remove rows where `country`='total'",
+                    "code": "df = df[~(df['country'] == 'total')]"
+                }
+            ],
+            "data_cleaning": [
+                {
+                    "operation": "transform column `gold` into `int` type",
+                    "code": "df['gold'] = df['gold'].astype(int)"
+                }
+            ],
+            "reasoning": [
+                {
+                    "operation": "sort the column `gold` in descending mode",
+                    "code": "df.sort_values(by=['gold'], ascending=False, inplace=True)"
+                },
+                {
+                    "operation": "add the values of column `gold` of the first three rows",
+                    "code": "add_result = df['gold'].iloc[:3].sum()"
+                },
+                {
+                    "operation": "check if the added value is equal to 100",
+                    "code": "add_value_100 = add_result == 100"
+                }
+            ],
+            "post_processing": [
+                {
+                    "operation": "print out the bool type variable indicating whether the statement is true or not",
+                    "code": "print(add_value_100)"
+                }
+            ]
+        }    
+    },
+    {
+        "statement": "the listed countries won a total of 400 gold medals", 
+        "label": 0, 
+        "column_selection": "<START> -> select columns named `country`, `gold` -> <END>", 
+        "row_selection": "<START> -> remove rows where `country`='total' -> <END>",
+        "data_cleaning": "<START> -> transform column `gold` into `int` type -> <END>",
+        "reasoning": "<START> -> add the values of column `gold` of the all rows -> check if the sum value is equal to 400 -> <END>",
+        "post_processing": "<START> -> print out the bool type variable indicating whether the statement is true or not -> <END>",
+        "caption": "the medal list of top 10 countries on gold medals in olympic game of paris 2024", 
+        "table_text": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "126"], 
+            ["china", "40", "27", "24", "91"], 
+            ["japan", "20", "12", "13", "45"], 
+            ["australia", "18", "19", "16", "53"], 
+            ["france", "16", "26", "22", "64"], 
+            ["netherlands", "15", "7", "12", "34"], 
+            ["great britain", "14", "22", "29", "65"], 
+            ["south korea", "13", "9", "10", "32"], 
+            ["italy", "12", "13", "15", "40"], 
+            ["germany", "12", "13", "8", "33"], 
+            ["total", "200", "192", "191", "583"]
+        ],
+        "table_column_selection": [
+            ["country", "gold", "silver", "bronze", "total"], 
+            ["the united states", "40", "44", "42", "126"], 
+            ["china", "40", "27", "24", "91"], 
+            ["japan", "20", "12", "13", "45"], 
+            ["australia", "18", "19", "16", "53"], 
+            ["france", "16", "26", "22", "64"], 
+            ["netherlands", "15", "7", "12", "34"], 
+            ["great britain", "14", "22", "29", "65"], 
+            ["south korea", "13", "9", "10", "32"], 
+            ["italy", "12", "13", "15", "40"], 
+            ["germany", "12", "13", "8", "33"], 
+            ["total", "200", "192", "191", "583"]
+        ],
+        "table_row_selection": [
+            ["country", "gold"], 
+            ["the united states", "40"], 
+            ["china", "40"], 
+            ["japan", "20"], 
+            ["australia", "18"], 
+            ["france", "16"], 
+            ["netherlands", "15"], 
+            ["great britain", "14"], 
+            ["south korea", "13"], 
+            ["italy", "12"], 
+            ["germany", "12"], 
+            ["total", "200"]
+        ],
+        "table_data_cleaning": [
+            ["country", "gold"], 
+            ["the united states", "40"], 
+            ["china", "40"], 
+            ["japan", "20"], 
+            ["australia", "18"], 
+            ["france", "16"], 
+            ["netherlands", "15"], 
+            ["great britain", "14"], 
+            ["south korea", "13"], 
+            ["italy", "12"], 
+            ["germany", "12"]
+        ],
+        "table_reasoning": [
+            ["country", "gold"], 
+            ["the united states", 40], 
+            ["china", 40], 
+            ["japan", 20], 
+            ["australia", 18], 
+            ["france", 16], 
+            ["netherlands", 15], 
+            ["great britain", 14], 
+            ["south korea", 13], 
+            ["italy", 12], 
+            ["germany", 12]
+        ],
+        "table_post_processing": [
+            ["country", "gold"], 
+            ["the united states", 40], 
+            ["china", 40], 
+            ["japan", 20], 
+            ["australia", 18], 
+            ["france", 16], 
+            ["netherlands", 15], 
+            ["great britain", 14], 
+            ["south korea", 13], 
+            ["italy", 12], 
+            ["germany", 12] 
+        ],
+        "code_base": "import pandas as pd\n\ndf = pd.DataFrame(\n    data=[['the united states', '40', '44', '42', '126'], ['china', '40', '27', '24', '91'], ['japan', '20', '12', '13', '45'], ['australia', '18', '19', '16', '53'], ['france', '16', '26', '22', '64'], ['netherlands', '15', '7', '12', '34'], ['great britain', '14', '22', '29', '65'], ['south korea', '13', '9', '10', '32'], ['italy', '12', '13', '15', '40'], ['germany', '12', '13', '8', '33'], ['total', '200', '192', '191', '583']],\n    columns=['country', 'gold', 'silver', 'bronze', 'total']    \n)\n", 
+        "generated_code": {
+            "column_selection": [
+                {
+                    "operation": "select columns named `country`, `gold`",
+                    "code": "df = df[['country', 'gold']]"
+                }
+            ],
+            "row_selection": [
+                {
+                    "operation": "remove rows where `country`='total'",
+                    "code": "df = df[~(df['country'] == 'total')]"
+                }
+            ],
+            "data_cleaning": [
+                {
+                    "operation": "transform column `gold` into `int` type",
+                    "code": "df['gold'] = df['gold'].astype(int)"
+                }
+            ],
+            "reasoning": [
+                {
+                    "operation": "add the values of column `gold` of the all rows",
+                    "code": "add_result = df['gold'].sum()"
+                },
+                {
+                    "operation": "check if the sum value is equal to 400",
+                    "code": "sum_value_400 = add_result == 400"
+                }
+            ],
+            "post_processing": [
+                {
+                    "operation": "print out the bool type variable indicating whether the statement is true or not",
+                    "code": "print(sum_value_400)"
+                }
+            ]
+        }    
+    }
+]
