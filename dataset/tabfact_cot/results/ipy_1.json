@@ -1,0 +1,34 @@
+[
+    {
+        "id": "test-0",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-1",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-2",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-3",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-4",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-5",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-6",
+        "uncaught_err": "'statement '"
+    },
+    {
+        "id": "test-7",
+        "uncaught_err": "'statement '"
+    }
+]

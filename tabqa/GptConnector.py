@@ -90,6 +90,7 @@ def is_chat_model(model):
         'gpt-3.5-turbo', 
         'gpt-3.5-turbo-0301',
         'Qwen/Qwen2.5-7B-Instruct',
+        'Qwen2.5-7B-Instruct',
         'gpt-35-turbo']:
         return True
     else:

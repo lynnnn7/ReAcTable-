@@ -254,7 +254,7 @@ class QuestionHandler:
     def __init__(self, qid, utterance, source_csv, target_value, base_path='./'):
         self.qid = qid
         self.utterance = utterance
-        self.source_csv = os.path.join(source_csv)
+        self.source_csv = source_csv
         self.target_value = target_value
         self.base_path = base_path
         self.API_key = "sk-oMs1jGJzVhRAuypxQRJhZwq6xh6obRMLLPsMY8ZA"

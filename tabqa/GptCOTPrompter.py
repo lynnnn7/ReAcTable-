@@ -154,14 +154,25 @@ Answer the following question based on the data above: "{}". Execute SQL step-by
         self.original_output = []
         
     def _read_data(self, normalize_df=True):
-        self.source_table_df = pd.read_csv(os.path.join(self.base_path, self.source_csv), on_bad_lines='skip', sep=self.sep)
-        # # print("Handler: ", self.source_table_df)
+        # self.source_table_df = pd.read_csv(os.path.join(self.base_path, self.source_csv), on_bad_lines='skip', sep=self.sep)
+        # 提取列名
+        columns = self.source_csv[0]
+        self.source_table_df = pd.DataFrame(self.source_csv[1:], columns=columns)
+        # print("Handler: ", self.source_table_df)
         self.source_schema = [normalize_col_name(c) for c in list(self.source_table_df.columns)]
         self.source_table_df.columns = self.source_schema
         self.data_examples = ''
         for i in range(min(100, self.source_table_df.shape[0])):
             self.data_examples += '\t'.join([str(i) for i in self.source_table_df.iloc[i].tolist()]) + '\n'
-        self.tmp_db_name = './tmp/' + ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=20)) + '.db'
+        # 打印字符集，检查它是否为空或无效
+        char_set = string.ascii_uppercase + string.ascii_lowercase + string.digits
+        print("Character set:", char_set)  # 调试输出
+
+        if char_set:  # 检查字符集是否有效
+            self.tmp_db_name = './tmp/' + ''.join(random.choices(char_set, k=20)) + '.db'
+        else:
+            raise ValueError("Character set is invalid!")
+        # self.tmp_db_name = './tmp/' + ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=20)) + '.db'
         if normalize_df:
             self.source_table_df = normalize_data_frame(self.source_table_df)
         self.series_dfs = [self.source_table_df]
@@ -355,7 +366,11 @@ class CodexAnswerCOTExecutor_template(CodexAnswerCOTExecutor):
         # data_table = '\t'.join(self.source_schema) + '\n' + self.data_examples
         ##############################################################
         data_table = table_formater(self.source_table_df, permute_df=False, line_limit=self.line_limit)
-        self.prompt = self.prompt_template.format(data_table, self.utterance)
+        # print(data_table)
+        
+        # 修改提示，要求返回 "true" 或 "false"
+        self.prompt = self.prompt_template.format(data_table, self.utterance) 
+        
         if maintain_df_ids:
             self.prompt = self.prompt.replace("DF", "DF0")
         
